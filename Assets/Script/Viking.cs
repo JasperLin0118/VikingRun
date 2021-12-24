@@ -5,13 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class Viking : MonoBehaviour
 {
-    public Animator animator;
+    private Animator animator;
     private Vector3 move, horizontalMove;
     private bool isGrounded = true;
 
     [Header("Turn")]
     public bool isTurning = false;
-    public float turningRate = 0.2f;
+    public float turningRate = 0.5f;
     private Quaternion startrotate, endrotate;
     private float turningTime = 0;
     private float turningDuration;
@@ -23,7 +23,7 @@ public class Viking : MonoBehaviour
     void Start()
     {
         turningDuration = 1 / turningRate;
-        animator = GetComponentInChildren<Animator>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -33,7 +33,6 @@ public class Viking : MonoBehaviour
 
         if (transform.position.y < -4) Invoke("Die", 1);//fall underground
             
-
         if (isTurning)
         {
             turningTime += turningDuration * Time.deltaTime;
@@ -46,15 +45,21 @@ public class Viking : MonoBehaviour
         }
         else
             turningTime = 0f;
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            ReturnToMainMenu();
+        }
+
         if(Input.GetKey(KeyCode.Space) && isGrounded) //jump
         {
-            gameObject.GetComponent<Rigidbody>().AddForce(350 * Vector3.up);
+            gameObject.GetComponent<Rigidbody>().AddForce(7 * Vector3.up, ForceMode.Impulse);
             isGrounded = false;
         }
         if(Input.GetKey(KeyCode.W)) //forward
         {
             animator.SetBool("isRunning", true);
-            move = 8 * Vector3.forward * Time.deltaTime;
+            move = 8 * transform.forward * Time.deltaTime;
         }
         else
         {
@@ -72,8 +77,8 @@ public class Viking : MonoBehaviour
             isTurning = true;
         }
         horizontalInput = Input.GetAxisRaw("Horizontal");
-        horizontalMove = 4 * transform.right *  horizontalInput * Time.deltaTime;
-        transform.Translate(move + horizontalMove);
+        horizontalMove = 7 * transform.right *  horizontalInput * Time.deltaTime;
+        transform.Translate(move + horizontalMove, Space.World);
     }
     void TurningDirection(bool left_or_right)
     {
@@ -101,5 +106,9 @@ public class Viking : MonoBehaviour
     {
         //Restart the game, under construction
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }

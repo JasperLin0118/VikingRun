@@ -60,6 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaclePrefab: {fileID: 3640885523492825315, guid: 2eed6931b76b8f8469915478cb5e8040, type: 3}
+  gatePrefab: {fileID: 7624278214507720175, guid: 5dc998dfa103d1844b859643db4208d6, type: 3}
   coinPrefab: {fileID: 6006632212383109784, guid: 420c6ca92d82727479202e683ab23fe9, type: 3}
 --- !u!1 &8534560687084187738
 GameObject:

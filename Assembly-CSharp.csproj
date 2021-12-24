@@ -61,7 +61,6 @@
     <Compile Include="Assets\Script\Coin.cs" />
     <Compile Include="Assets\Script\Viking.cs" />
     <Compile Include="Assets\Script\GameManager.cs" />
-    <Compile Include="Assets\Script\NewBehaviourScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Fonts\OFL.txt" />

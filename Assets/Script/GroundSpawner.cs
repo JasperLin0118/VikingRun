@@ -7,7 +7,7 @@ public class GroundSpawner : MonoBehaviour
     public int rotateDegree;
     public int count = 0;
     public bool isTurningTile = false;
-    public string obstaclename = "";
+    public string obstaclename = "not bridge";
 
     public void SpawnTile()
     {
@@ -29,7 +29,7 @@ public class GroundSpawner : MonoBehaviour
         }
         else
         {
-            obstaclename = "";
+            obstaclename = "not bridge";
             temp = Instantiate(groundTile, nextSpawnPoint, Quaternion.Euler(0, rotateDegree, 0));
         }
         isTurningTile = false;
