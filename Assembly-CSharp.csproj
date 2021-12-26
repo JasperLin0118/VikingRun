@@ -53,14 +53,16 @@
     <UnityVersion>2020.3.23f1</UnityVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Assets\Script\SceneSwitcher.cs" />
-    <Compile Include="Assets\Script\GroundTile.cs" />
-    <Compile Include="Assets\Script\GroundSpawner.cs" />
-    <Compile Include="Assets\Script\BeginGround.cs" />
-    <Compile Include="Assets\Script\Quit.cs" />
-    <Compile Include="Assets\Script\Coin.cs" />
-    <Compile Include="Assets\Script\Viking.cs" />
-    <Compile Include="Assets\Script\GameManager.cs" />
+    <Compile Include="Assets\Scripts\SceneSwitcher.cs" />
+    <Compile Include="Assets\Scripts\GroundTile.cs" />
+    <Compile Include="Assets\Scripts\GroundSpawner.cs" />
+    <Compile Include="Assets\Scripts\BeginGround.cs" />
+    <Compile Include="Assets\Scripts\AudioManager.cs" />
+    <Compile Include="Assets\Scripts\Quit.cs" />
+    <Compile Include="Assets\Scripts\Coin.cs" />
+    <Compile Include="Assets\Scripts\Viking.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\MenuManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Fonts\OFL.txt" />
