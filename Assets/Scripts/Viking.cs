@@ -15,7 +15,7 @@ public class Viking : MonoBehaviour
     private Quaternion startrotate, endrotate;
     private float turningTime = 0;
     private float turningDuration;
-    private bool alive = true;
+    public static bool alive = true;
     float horizontalInput;
     public Canvas pause;
 
@@ -23,6 +23,7 @@ public class Viking : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        alive = true;
         turningDuration = 1 / turningRate;
         animator = GetComponent<Animator>();
     }
@@ -32,7 +33,7 @@ public class Viking : MonoBehaviour
     {
         if (!alive) return; //dead, don't do anything
 
-        if (transform.position.y < -4) Invoke("Die", 1);//fall underground
+        if (transform.position.y < -4) Invoke("Die", 0);//fall underground
 
         if (isTurning)
         {
@@ -101,7 +102,7 @@ public class Viking : MonoBehaviour
         {
             alive = false;
             animator.SetBool("isDead", true);
-            Invoke("Die", 1.5f);
+            Invoke("Die", 2.2f);
         }
     }
     void Die()

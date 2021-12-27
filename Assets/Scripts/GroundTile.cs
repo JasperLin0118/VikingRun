@@ -20,8 +20,8 @@ public class GroundTile : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
+        Destroy(gameObject, 2.3f);
         groundSpawner.SpawnTile();
-        Destroy(gameObject, 3);
     }
 
     public void SpawnObstacle()
@@ -34,7 +34,7 @@ public class GroundTile : MonoBehaviour
             if(Random.Range(0, 3) == 0)
                 Instantiate(obstaclePrefab, spawnPoint.position, Quaternion.Euler(0, groundSpawner.rotateDegree, 0), transform);
             else
-                Instantiate(obstaclePrefab2, spawnPoint.position + new Vector3(Random.Range(0.2f, 4f), 1, 0), Quaternion.Euler(0, groundSpawner.rotateDegree, 0), transform);
+                Instantiate(obstaclePrefab2, spawnPoint.position + new Vector3(Random.Range(0.2f, 3.5f), 1, 0), Quaternion.Euler(0, groundSpawner.rotateDegree, 0), transform);
 
         }
     }
